@@ -1,9 +1,9 @@
-# ВНУТРЕННЯЯ ЛОГИКА ИГРЫ
-
 import time
 
 # импортируем функцию randint
 from random import randint
+
+# ВНУТРЕННЯЯ ЛОГИКА ИГРЫ
 
 # собственные классы исключений
 class BoardException(Exception):
@@ -150,6 +150,7 @@ class Board:
 
 
 # ВНЕШНЯЯ ЛОГИКА ИГРЫ
+
 # класс "Игрок"
 class Player:                          # класс Player является родителем для классов AI и USER
     def __init__(self, board, enemy):  # передаем в качестве аргументов две доски
@@ -237,14 +238,15 @@ class Game:
         print("-------------------")
         print("  Приветсвуем вас  ")
         print("      в игре       ")
-        print("    морской бой    ")
+        print("  МОРСКАЯ БИТВА    ")
+        print("     КОРАБЛЕЙ      ")
         print("-------------------")
         print(" формат ввода: x y ")
         print(" x - номер строки  ")
         print(" y - номер столбца ")
 
     # игровой цикл
-    def print_boards(self):
+    def print_boards(self):  # вывод игровых досок
         print("-" * 20)
         print("Доска пользователя:")
         print(self.us.board)
@@ -252,6 +254,7 @@ class Game:
         print("Доска компьютера:")
         print(self.ai.board)
         print("-" * 20)
+
     def loop(self):
         num = 0        # номер хода
         while True:
