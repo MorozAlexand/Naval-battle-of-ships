@@ -1,5 +1,7 @@
 # ВНУТРЕННЯЯ ЛОГИКА ИГРЫ
 
+import time
+
 # импортируем функцию randint
 from random import randint
 
@@ -257,6 +259,7 @@ class Game:
                 repeat = self.us.move()
             else:              # ход компьютера
                 print("Ходит компьютер!")
+                time.sleep(3)  # задержка хода компьютера на 3 секунды
                 repeat = self.ai.move()
             if repeat:         # позволяет сделать повторный ход игроку поразившеме корабль
                 num -= 1
@@ -281,4 +284,3 @@ class Game:
 # запуск игры
 g = Game()
 g.start()
-
