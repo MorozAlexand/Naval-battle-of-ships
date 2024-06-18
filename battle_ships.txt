@@ -1,1 +1,27 @@
+# собственные классы исключений
+class BoardException(Exception):
+    pass
 
+class BoardOutException(BoardException):   # исключение когда игрок пытается выстрелить за пределы доски
+    def __str__(self):
+        return "Вы пытаетесь выстрелить за доску!"
+
+class BoardUsedException(BoardException):
+    def __str__(self):
+        return "Вы уже стреляли в эту клетку"
+
+class BoardWrongShipException(BoardException):
+    pass
+
+
+# класс "точка"
+class Dot:
+    def __init__(self, x, y):  # каждая точка описывается координатами по осям Х и У
+        self.x = x
+        self.y = y
+
+    def __eq__(self, other):   # метод проверяет точки на равенство
+        return self.x == other.x and self.y == other.y
+
+    def __repr__(self):
+        return f"Dot({self.x}, {self.y})"
