@@ -244,16 +244,18 @@ class Game:
         print(" y - номер столбца ")
 
     # игровой цикл
+    def print_boards(self):
+        print("-" * 20)
+        print("Доска пользователя:")
+        print(self.us.board)
+        print("-" * 20)
+        print("Доска компьютера:")
+        print(self.ai.board)
+        print("-" * 20)
     def loop(self):
         num = 0        # номер хода
         while True:
-            print("-" * 20)
-            print("Доска пользователя:")
-            print(self.us.board)
-            print("-" * 20)
-            print("Доска компьютера:")
-            print(self.ai.board)
-            print("-" * 20)
+            self.print_boards()
             if num % 2 == 0:   # ход пользователя
                 print("Ходит пользователь!")
                 repeat = self.us.move()
@@ -265,11 +267,13 @@ class Game:
                 num -= 1
 
             if self.ai.board.count == 7:
+                self.print_boards()
                 print("-" * 20)
                 print("Пользователь выиграл!")
                 break
 
             if self.us.board.count == 7:
+                self.print_boards()
                 print("-" * 20)
                 print("Компьютер выиграл!")
                 break
